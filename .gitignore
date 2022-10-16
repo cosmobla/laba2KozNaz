@@ -1,129 +1,791 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+'''1.1 ТРАНСПОНИРОВАНИЕ'''
 
-# C extensions
-*.so
+def transpose(matrix):
+    transposed_matrix = create_matrix(len(matrix[0]), len(matrix))
+    for x in range(len(matrix)):
+        for y in range(len(matrix[0])):
+            transposed_matrix[y][x] = matrix[x][y]
+    matrix = transposed_matrix
+    return matrix
+    
+'''1.2 УМНОЖЕНИЕ'''
+x1= int(input('Введите кол-во элементов в строке 1 матрицы: '))
+y1= int(input('Введите кол-во элементов в столбце 1 матрицы: '))
+x2= int(input('Введите кол-во элементов в строке 2 матрицы: '))
+y1= int(input('Введите кол-во элементов в столбце 2 матрицы: '))
+    
+print('Введите элементы матрицы A: ')
+A = []
+for i in range(x1) :
+    A.append([])
+    for j in range(y1):
+       A[i].append(int(input()))     
+print('Введите элементы матрицы B')
+B = []
+for q in range(x2):
+   B.append([])
+   for w in range(y2): 
+     B[q].append(int(input()))
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+sum=0
+t=[]
+C=[]
+if len(B)!=len(A[0]):
+    print ("Матрицы не могут быть перемножены")
+else:
+   x1=len(A)
+   y1=len(A[0])
+   x2=n1        
+   y2=len(B[0]) 
+for z in range(0,x1):
+   for j in range(0,y2):
+      for i in range(0,y1):
+         s=s+A[z][i]*B[i][j]
+      t.append(s)
+      s=0
+    C.append(t)
+    t=[]           
+print(C)
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+'''1.3 Транспонирование матриц'''
+print('Enter the size of the 1 matrix: ')
+razmer = str(input())
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+m1 = []
+m2 = []
+m31 = []
+m32 = []
+m4 = []
+m5 = []
+m61 = []
+m62 = []
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+if razmer == '2x1':
+    for i in range(2):
+        m1.append(float(input()))
+    print(m1[0])
+    print(m1[1])
 
-# Translations
-*.mo
-*.pot
+if razmer == '1x2':
+    for i in range(2):
+        m2.append(float(input()))
+    print(m2[0], m2[1])
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+if razmer == '2x2':
+    for i in range(4):
+        m31.append(float(input()))
+    print(m31[0], m31[1])
+    print(m31[2], m31[3])
 
-# Flask stuff:
-instance/
-.webassets-cache
+if razmer == '1x3':
+    for i in range(3):
+        m4.append(float(input()))
+    print(m4[0], m4[1], m4[2])
 
-# Scrapy stuff:
-.scrapy
+if razmer == '3x1':
+    for i in range(3):
+        m5.append(float(input()))
+    print(m5[0])
+    print(m5[1])
+    print(m5[2])
 
-# Sphinx documentation
-docs/_build/
+if razmer == '3x3':
+    for i in range(9):
+        m61.append(float(input()))
+    print(m61[0], m61[1], m61[2])
+    print(m61[3], m61[4], m61[5])
+    print(m61[6], m61[7], m61[8])
 
-# PyBuilder
-target/
+print('Select the required action')
+move = str(input())
+if move == 'Транспорирование' or move == 'Transposition' or move == 'transposition' or move == 'транспорирование':
+    if razmer == '2x1':
+        m1T = (m1[1], m1[0])
+        print('''The result will be:\n''')
+        print(m1T)
 
-# Jupyter Notebook
-.ipynb_checkpoints
+    if razmer == '1x2':
+        m2T1 = (m2[1])
+        m2T2 = (m2[0])
+        print('''The result will be:\n''')
+        print(m2T1)
+        print(m2T2)
 
-# IPython
-profile_default/
-ipython_config.py
+    if razmer == '2x2':
+        m31T1 = (m31[0], m31[2])
+        m31T2 = (m31[1], m31[3])
+        print('''The result will be:\n''')
+        print(m31T1)
+        print(m31T2)
 
-# pyenv
-.python-version
+    if razmer == '1x3':
+        m4T1 = (m4[2])
+        m4T2 = (m4[1])
+        m4T3 = (m4[0])
+        print('''The result will be:\n''')
+        print(m4T1)
+        print(m4T2)
+        print(m4T3)
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+    if razmer == '3x1':
+        m5T = (m5[2], m5[1], m5[0])
+        print('''The result will be:\n''')
+        print(m5T)
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+    if razmer == '3x3':
+        m61T1 = (m61[0], m61[3], m61[6])
+        m61T2 = (m61[1], m61[4], m61[7])
+        m61T3 = (m61[2], m61[5], m61[8])
+        print('''The result will be:\n''')
+        print(m61T1)
+        print(m61T2)
+        print(m61T3)
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+if move == 'Умножение' or move == 'умножение' or move == 'multiplication' or move == 'Multiplication':
+    print('Enter the size of the 2 matrix: ')
+    razmer2 = str(input())
 
-# SageMath parsed files
-*.sage.py
+    if razmer2 == '2x1':
+        for i in range(2):
+            m1.append(float(input()))
+        print(m1[0])
+        print(m1[1])
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+    if razmer2 == '1x2':
+        for i in range(2):
+            m2.append(float(input()))
+        print(m2[0], m2[1])
 
-# Spyder project settings
-.spyderproject
-.spyproject
+    if razmer2 == '2x2':
+        for i in range(4):
+            m32.append(float(input()))
+        print(m32[0], m32[1])
+        print(m32[2], m32[3])
+    if razmer2 == '1x3':
+        for i in range(3):
+            m4.append(float(input()))
+        print(m4[0], m4[1], m4[2])
+    if razmer2 == '3x1':
+        for i in range(3):
+            m5.append(float(input()))
+        print(m5[0])
+        print(m5[1])
+        print(m5[2])
+    if razmer2 == '3x3':
+        for i in range(9):
+            m62.append(float(input()))
+        print(m62[0], m62[1], m62[2])
+        print(m62[3], m62[4], m62[5])
+        print(m62[6], m62[7], m62[8])
+    if razmer == '2x1' and razmer2 == '2x1':
+        print('''The result will be:\n''')
+        print('Math error')
 
-# Rope project settings
-.ropeproject
+    if razmer == '2x1' and razmer2 == '1x2':
+        H11 = (m1[0]*m2[0])
+        H12 = (m1[0]*m2[1])
+        H21 = (m1[1]*m2[0])
+        H22 = (m1[1]*m2[1])
+        print('''The result will be:\n''')
+        print((H11, H12))
+        print((H21, H22))
 
-# mkdocs documentation
-/site
+    if razmer == '2x1' and razmer2 == '2x2':
+        print('''The result will be:\n''')
+        print('Math error')
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+    if razmer == '2x1' and razmer2 == '1x3':
+        I11 = (m1[0]*m4[0])
+        I12 = (m1[0]*m4[1])
+        I13 = (m1[0]*m4[2])
+        I21 = (m1[1]*m4[0])
+        I22 = (m1[1]*m4[1])
+        I23 = (m1[1]*m4[2])
+        print('''The result will be:\n''')
+        print((I11, I12, I13))
+        print((I21, I22, I23))
 
-# Pyre type checker
-.pyre/
+    if razmer == '2x1' and razmer2 == '3x1':
+        print('Math error')
+
+if razmer == '2x1' and razmer2 == '3x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x2' and razmer2 == '2x1':
+        J11 = (m2[0]*m1[0]+m2[1]*m1[1])
+        print('''The result will be:\n''')
+        print(J11)
+
+    if razmer == '1x2' and razmer2 == '1x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x2' and razmer2 == '2x2':
+        K11 = (m2[0]*m32[0]+m2[1]*m32[2])
+        K12 = (m2[0]*m32[1]+m2[1]*m32[3])
+        print('''The result will be:\n''')
+        print((K11, K12))
+
+    if razmer == '1x2' and razmer2 == '1x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x2' and razmer2 == '3x1':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x2' and razmer2 == '3x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '2x2' and razmer2 == '1x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '2x2' and razmer2 == '2x1':
+        L11 = (m31[0]*m1[0]+m31[1]*m1[1])
+        L21 = (m31[2]*m1[0]+m31[3]*m1[1])
+        print('''The result will be:\n''')
+        print(L11)
+        print(L21)
+
+    if razmer == '2x2' and razmer2 == '2x2':
+        M11 = (m31[0]*m32[0]+m31[1]*m32[2])
+        M12 = (m31[0]*m32[1]+m31[1]*m32[3])
+        M21 = (m31[2]*m32[0]+m31[3]*m32[2])
+        M22 = (m31[2]*m32[1]+m31[3]*m32[3])
+        print('''The result will be:\n''')
+        print((M11, M12))
+        print((M21, M22))
+
+    if razmer == '2x2' and razmer2 == '1x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '2x2' and razmer2 == '3x1':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '2x2' and razmer2 == '3x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x3' and razmer2 == '1x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x3' and razmer2 == '2x1':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x3' and razmer2 == '2x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x3' and razmer2 == '1x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '1x3' and razmer2 == '3x1':
+        N11 = (m4[0]*m5[0]+m4[1]*m5[1]+m4[2]*m5[2])
+        print('''The result will be:\n''')
+        print(N11)
+
+    if razmer == '1x3' and razmer2 == '3x3':
+        N11 = (m4[0] * m62[0] + m4[1] * m62[3] + m4[2] * m62[6])
+        N12 = (m4[0] * m62[1] + m4[1] * m62[4] + m4[2] * m62[7])
+        N13 = (m4[0] * m62[2] + m4[1] * m62[5] + m4[2] * m62[8])
+        print('''The result will be:\n''')
+        print(N11, N12, N13)
+
+    if razmer == '3x3' and razmer2 == '1x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '3x3' and razmer2 == '2x1':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '3x3' and razmer2 == '2x2':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '3x3' and razmer2 == '1x3':
+        print('''The result will be:\n''')
+        print('Math error')
+
+    if razmer == '3x3' and razmer2 == '3x1':
+        O11 = (m61[0] * m5[0] + m61[1] * m5[1] + m61[2] * m5[2])
+        O12 = (m61[3] * m5[0] + m61[4] * m5[1] + m61[5] * m5[2])
+        O13 = (m61[6] * m5[0] + m61[7] * m5[1] + m61[8] * m5[2])
+        print('''The result will be:\n''')
+        print(O11)
+        print(O12)
+        print(O13)
+
+if razmer == '3x3' and razmer2 == '3x3':
+        P11 = (m61[0] * m62[0] + m61[1] * m62[3] + m61[2] * m62[6])
+        P12 = (m61[0] * m62[1] + m61[1] * m62[4] + m61[2] * m62[7])
+        P13 = (m61[0] * m62[2] + m61[1] * m62[5] + m61[2] * m62[8])
+        P21 = (m61[3] * m62[0] + m61[4] * m62[3] + m61[5] * m62[6])
+        P22 = (m61[3] * m62[1] + m61[4] * m62[4] + m61[5] * m62[7])
+        P23 = (m61[3] * m62[2] + m61[4] * m62[5] + m61[5] * m62[8])
+        P31 = (m61[6] * m62[0] + m61[7] * m62[3] + m61[8] * m62[6])
+        P32 = (m61[6] * m62[1] + m61[7] * m62[4] + m61[8] * m62[7])
+        P33 = (m61[6] * m62[2] + m61[7] * m62[5] + m61[8] * m62[8])
+        print('''The result will be:\n''')
+        print(P11, P12, P13)
+        print(P21, P22, P23)
+        print(P31, P32, P33)
+if move == ('Найти ранг матрицы') or move == ('find the rank of the matrix') or move == ('найти ранг матрицы') or move == ('Find the rank of the matrix'):
+    print('Найдем определитель матрицы')
+
+    if razmer == '2x2':
+        partofdetA1 = (m31[0] * m31[3])
+        partofdetA2 = -(m31[1] * m31[2])
+        detA = (partofdetA1 + partofdetA2)
+        print('detA =', detA)
+        if detA == 0 and partofdetA1 == 0 and partofdetA2 == 0:
+            print('Rang of the matrix is equal to: 0')
+        elif detA == 0 and partofdetA1 != 0 and partofdetA2 != 0:
+            print('Rang of the matrix is equal to: 1')
+        else:
+            print('Rang of the matrix is equal to: 2')
+
+    if razmer == '3x3':
+        partofdetB11 = (m61[0] * m61[4] * m61[8])
+        partofdetB12 = (m61[2] * m61[3] * m61[7])
+        partofdetB13 = (m61[1] * m61[5] * m61[6])
+        partofdetB21 = (m61[2] * m61[4] * m61[6])
+        partofdetB22 = (m61[0] * m61[5] * m61[7])
+        partofdetB23 = (m61[1] * m61[3] * m61[8])
+        detB = (partofdetB11 + partofdetB12 + partofdetB13 - (partofdetB21 + partofdetB22 + partofdetB23))
+        print('detB =', detB)
+        if detB == 0 and partofdetB11 + partofdetB12 + partofdetB13 == 0 and partofdetB21 + partofdetB22 + partofdetB23 == 0:
+            print('Rang of the matrix is equal to: 0')
+
+        elif detB == 0 and partofdetB11 + partofdetB12 + partofdetB13 != 0 and partofdetB21 + partofdetB22 + partofdetB23 != 0 and partofdetB11 == partofdetB21 and partofdetB12 == partofdetB22 and partofdetB13 == partofdetB23:
+            print('Rang of the matrix is equal to: 1')
+
+        elif detB == 0 and partofdetB11 == partofdetB12 == partofdetB13 == partofdetB21 == partofdetB22 == partofdetB23:
+            print('Rang of the matrix is equal to: 1')
+
+        elif m61[0] == m61[1] == m61[2] == m61[3] == m61[4] == m61[5] == m61[6] == m61[7] == m61[8]:
+            print('Rang of the matrix is equal to: 1')
+
+        elif m61[0] == m61[1] == m61[2] and m61[3] == m61[4] == m61[5] and m61[6] == m61[7] == m61[8]:
+            print('Rang of the matrix is equal to: 1')
+
+        elif m61[0] == m61[3] and m61[1] == m61[4] and m61[2] == m61[5] or m61[0] == m61[6] and m61[1] == m61[7] and m61[2] == m61[8] or m61[3] == m61[6] and m61[4] == m61[7] and m61[5] == m61[8]:
+            print('Rang of the matrix is equal to: 2')
+
+        elif m61[0] == m61[1] and m61[3] == m61[4] and m61[6] == m61[7] or m61[0] == m61[2] and m61[3] == m61[5] and m61[6] == m61[8] or m61[1] == m61[2] and m61[4] == m61[5] and m61[7] == m61[8]:
+            print('Rang of the matrix is equal to: 2')
+
+        elif detB == 0 and partofdetB11 + partofdetB12 + partofdetB13 != 0 and partofdetB21 + partofdetB22 + partofdetB23 != 0 and partofdetB11 != partofdetB21 and partofdetB12 != partofdetB22 and partofdetB13 != partofdetB23:
+            print('Rang of the matrix is equal to: 2')
+
+        elif m61[0] == m61[1] and m61[3] == m61[4] and m61[6] == m61[7] and m61[0] == m61[3] and m61[1] == m61[4] and m61[2] == m61[5]:
+            print('Rang of the matrix is equal to: 2')
+
+        elif m61[0] == m61[2] and m61[3] == m61[5] and m61[6] == m61[8] and m61[0] == m61[3] and m61[1] == m61[4] and m61[2] == m61[5]:
+            print('Rang of the matrix is equal to: 2')
+
+elif m61[1] == m61[2] and m61[4] == m61[5] and m61[7] == m61[8] and m61[0] == m61[3] and m61[1] == m61[4] and m61[2] == m61[5]:
+            print('Rang of the matrix is equal to: 2')
+
+        elif m61[0] == m61[1] and m61[3] == m61[4] and m61[6] == m61[7] and m61[0] == m61[6] and m61[1] == m61[7] and m61[2] == m61[7]:
+            print('Rang of the matrix is equal to: 2')
+
+        elif m61[0] == m61[1] and m61[3] == m61[4] and m61[6] == m61[7] and m61[3] == m61[6] and m61[4] == m61[7] and m61[5] == m61[8]:
+            print('Rang of the matrix is equal to: 2')
+
+        else:
+            print('Rang of the matrix is equal to: 3')
+            
+''' 2.1 Транспонирование'''
+
+import numpy as np
+
+print ('Внимание! Возможные размеры матиц: 1x2,1x3,2x1,3x1,2x2,3x3')
+
+rz1 = int(input('Введите количество строк матрицы: '))
+rz2 = int(input('Введите колчиество столбцов матрицы: '))
+
+if ((rz1==2) and (rz2==2)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    a21 = int(input('Введите элемент а21 первой матрицы: '))
+    a22 = int(input('Введите элемент а22 первой матрицы: '))
+
+    matr1=np.array([[a11,a12],[a21,a22]])
+
+    print(np.transpose(matr1))
+
+elif ((rz1==2) and (rz2==1)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a21 = int(input('Введите элемент a12 первой матрицы: '))
+
+    matr1=np.array([[a11],[a21]])
+
+    print(np.transpose(matr1))
+
+elif ((rz1==3) and (rz2==1)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a21 = int(input('Введите элемент a12 первой матрицы: '))
+    a31 = int(input('Введите элемент a13 первой матрицы: '))
+
+    matr1=np.array([[a11],[a21],[a31]])
+
+    print(np.transpose(matr1))
+
+elif ((rz1==3) and (rz2==3)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+    a13 = int(input('Введите элемент a13 первой матрицы: '))
+
+    a21 = int(input('Введите элемент а21 второй матрицы: '))
+    a22 = int(input('Введите элемент a22 второй матрицы: '))
+    a23 = int(input('Введите элемент a23 второй матрицы: '))
+
+    a31 = int(input('Введите элемент a31 первой матрицы: '))
+    a32 = int(input('Введите элемент а32 первой матрицы: '))
+    a33 = int(input('Введите элемент а33 первой матрицы: '))
+
+    matr1=np.array([[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]])
+
+    print(np.transpose(matr1))
+
+elif ((rz1==1) and (rz2==3)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+    a13 = int(input('Введите элемент a13 первой матрицы: '))
+
+    matr1=np.array([[a11,a12,a13]])
+
+    print(np.transpose(matr1))
+
+elif ((rz1==1) and (rz2==2)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    matr1=np.array([[a11,a12]])
+
+    print(np.transpose(matr1))
+    
+    
+    
+    
+''' 2.2 Умножение'''
+
+import numpy as np
+
+print ('Внимание! Возможные размеры матиц: 1x2,1x3,2x1,3x1,2x3,3x2,2x2,3x3')
+
+rz1 = int(input('Введите количество строк первой матрицы: '))
+rz2 = int(input('Введите колчиество столбцов первой матрицы: '))
+rz3 = int(input('Введите количество строк второй матрицы: '))
+rz4 = int(input('Введите колчиество столбцов второй матрицы: '))
+
+if rz2 != rz3:
+    print ('Количество столбцов первой матрицы должно совпадать с количеством строк второй матрицы')
+
+
+elif (((rz1==2) and (rz2==2)) and ((rz3==2) and (rz4==2))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    a21 = int(input('Введите элемент а21 первой матрицы: '))
+    a22 = int(input('Введите элемент а22 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент а12 второй матрицы: '))
+
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+    b22 = int(input('Введите элемент а22 второй матрицы: '))
+
+    matr1=np.array([[a11,a12],[a21,a22]])
+    matr2=np.array([[b11,a12],[b21,b22]])
+
+    print(matr1.dot(matr2))
+
+elif (((rz1==1) and (rz2==2)) and ((rz3==2) and (rz4==1))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+
+    matr1=np.array([[a11,a12]])
+    matr2=np.array([[b11],[b21]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==2) and (rz2==1)) and ((rz3==1) and (rz4==2))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a21 = int(input('Введите элемент a21 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент а12 второй матрицы: '))
+
+    matr1=np.array([[a11],[a21]])
+    matr2=np.array([[b11,b12]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==1) and (rz2==3)) and ((rz3==3) and (rz4==1))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+    a13 = int(input('Введите элемент a13 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+    b31 = int(input('Введите элемент а31 второй матрицы: '))
+
+    matr1=np.array([[a11,a12,a13]])
+    matr2=np.array([[b11],[b21],[b31]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==3) and (rz2==1)) and ((rz3==1) and (rz4==3))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a21 = int(input('Введите элемент a21 первой матрицы: '))
+    a31 = int(input('Введите элемент a31 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент а12 второй матрицы: '))
+    b13 = int(input('Введите элемент а13 второй матрицы: '))
+
+    matr1=np.array([[a11],[a21],[a31]])
+    matr2=np.array([[b11,b12,b13]])
+
+    print(np.dot(matr1,matr2))
+
+
+elif (((rz1==1) and (rz2==2)) and ((rz3==2) and (rz4==2))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент а12 второй матрицы: '))
+
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+    b22 = int(input('Введите элемент а22 второй матрицы: '))
+
+    matr1=np.array([[a11,a12]])
+    matr2=np.array([[b11,b12],[b21,b22]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==2) and (rz2==2)) and ((rz3==2) and (rz4==1))):
+
+    a11 = int(input('Введите элемент a11 второй матрицы: '))
+    a12 = int(input('Введите элемент а12 второй матрицы: '))
+
+    a21 = int(input('Введите элемент а21 второй матрицы: '))
+    a22 = int(input('Введите элемент а22 второй матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+
+    matr1=np.array([[a11,a12],[a21,a22]])
+    matr2=np.array([[b11],[b21]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==2) and (rz2==1)) and ((rz3==1) and (rz4==3))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a21 = int(input('Введите элемент a21 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент а12 второй матрицы: '))
+    b13 = int(input('Введите элемент а13 второй матрицы: '))
+
+    matr1=np.array([[a11],[a21]])
+    matr2=np.array([[b11,b12,b13]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1==3) and (rz2==3)) and ((rz3==3) and (rz4==3))):
+
+    a11=int(input('Введите элемент а11 первой матрицы: '))
+    a12=int(input('Введите элемент а12 первой матрицы: '))
+    a13=int(input('Введите элемент а13 первой матрицы: '))
+
+    a21=int(input('Введите элемент a21 первой матрицы: '))
+    a22=int(input('Введите элемент а22 первой матрицы: '))
+    a23=int(input('Введите элемент а23 первой матрицы: '))
+
+    a31=int(input('Введите элемент a31 первой матрицы: '))
+    a32=int(input('Введите элемент а32 первой матрицы: '))
+    a33=int(input('Введите элемент а33 первой матрицы: '))
+
+    b11=int(input('Введите элемент a11 второй матрицы: '))
+    b12=int(input('Введите элемент a12 второй матрицы: '))
+    b13=int(input('Введите элемент a13 второй матрицы: '))
+
+    b21=int(input('Введите элемент а21 второй матрицы: '))
+    b22=int(input('Введите элемент a22 второй матрицы: '))
+    b23=int(input('Введите элемент a23 второй матрицы: '))
+
+    b31=int(input('Введите элемент а31 второй матрицы: '))
+    b32=int(input('Введите элемент a32 второй матрицы: '))
+    b33=int(input('Введите элемент a33 второй матрицы: '))
+
+    matr1=np.array([[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]])
+    matr2=np.array([[b11,b12,b13],[b21,b22,b23],[b31,b32,b33]])
+
+    print(np.dot(matr1,matr2))
+
+elif (((rz1 == 1) and (rz2 == 3)) and ((rz3 == 3) and (rz4 == 3))):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент а12 первой матрицы: '))
+    a13 = int(input('Введите элемент а13 первой матрицы: '))
+
+    b11 = int(input('Введите элемент a11 второй матрицы: '))
+    b12 = int(input('Введите элемент a12 второй матрицы: '))
+    b13 = int(input('Введите элемент a13 второй матрицы: '))
+
+    b21 = int(input('Введите элемент а21 второй матрицы: '))
+    b22 = int(input('Введите элемент a22 второй матрицы: '))
+    b23 = int(input('Введите элемент a23 второй матрицы: '))
+
+    b31 = int(input('Введите элемент а31 второй матрицы: '))
+    b32 = int(input('Введите элемент a32 второй матрицы: '))
+    b33 = int(input('Введите элемент a33 второй матрицы: '))
+
+    matr1 = np.array([[a11, a12, a13]])
+    matr2 = np.array([[b11, b12, b13], [b21, b22, b23], [b31, b32, b33]])
+
+    print(np.dot(matr1, matr2))
+
+elif (((rz1==3) and (rz2==3)) and ((rz3==3) and (rz4==1))):
+
+    a11=int(input('Введите элемент а11 первой матрицы: '))
+    a12=int(input('Введите элемент а12 первой матрицы: '))
+    a13=int(input('Введите элемент а13 первой матрицы: '))
+
+    a21=int(input('Введите элемент a21 первой матрицы: '))
+    a22=int(input('Введите элемент а22 первой матрицы: '))
+    a23=int(input('Введите элемент а23 первой матрицы: '))
+
+    a31=int(input('Введите элемент a31 первой матрицы: '))
+    a32=int(input('Введите элемент а32 первой матрицы: '))
+    a33=int(input('Введите элемент а33 первой матрицы: '))
+
+    b11=int(input('Введите элемент a11 второй матрицы: '))
+    b21=int(input('Введите элемент a21 второй матрицы: '))
+    b23=int(input('Введите элемент a23 второй матрицы: '))
+
+
+    matr1=np.array([[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]])
+    matr2=np.array([[b11],[b21],[b23]])
+
+    print(np.dot(matr1,matr2))
+    
+    
+ ''' 2.3 Ранг матрицы'''
+ 
+ import numpy as np
+
+print ('Внимание! Возможные размеры матиц: 2x2,3x3')
+
+rz1 = int(input('Введите количество строк матрицы: '))
+rz2 = int(input('Введите колчиество столбцов матрицы: '))
+
+if ((rz1==2) and (rz2==2)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+
+    a21 = int(input('Введите элемент а21 первой матрицы: '))
+    a22 = int(input('Введите элемент а22 первой матрицы: '))
+
+    matr1=np.array([[a11,a12],[a21,a22]])
+
+    print(np.linalg.matrix_rank(matr1))
+
+elif ((rz1==3) and (rz2==3)):
+
+    a11 = int(input('Введите элемент а11 первой матрицы: '))
+    a12 = int(input('Введите элемент a12 первой матрицы: '))
+    a13 = int(input('Введите элемент a13 первой матрицы: '))
+
+    a21 = int(input('Введите элемент а21 второй матрицы: '))
+    a22 = int(input('Введите элемент a22 второй матрицы: '))
+    a23 = int(input('Введите элемент a23 второй матрицы: '))
+
+    a31 = int(input('Введите элемент a31 первой матрицы: '))
+    a32 = int(input('Введите элемент а32 первой матрицы: '))
+    a33 = int(input('Введите элемент а33 первой матрицы: '))
+
+    matr1=np.array([[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]])
+
+    print(np.linalg.matrix_rank(matr1))
+    
+    
+    
+''' 3.1 Возведение в -1 степень'''
+
+a,b,c,d,e,f,g,h,i=map(int, input().split())
+a1= ((-1)**2)*((e*i)-(h*f))
+b1= ((-1)**3)*((d*i)-(g*f))
+c1= ((-1)**4)*((d*h)-(g*e))
+d1= ((-1)**3)*((b*i)-(h*c))
+e1= ((-1)**4)*((a*i)-(g*c))
+f1= ((-1)**5)*((a*h)-(g*b))
+g1= ((-1)**4)*((b*f)-(e*c))
+h1= ((-1)**5)*((a*f)-(d*c))
+i1= ((-1)**6)*((a*e)-(d*b)) 
+
+print(a1, d1, g1)
+print(b1, e1, h1)
+print(c1, f1, i1)
+
+
+'''3.2 Сравнение быстродействия программ'''
+
+
+import timeit
+import numpy as np
+start_time = timeit.default_timer()
+
+a,b,c,d,e,f,g,h,i=map(int, input().split())
+a1= ((-1)**2)*((e*i)-(h*f))
+b1= ((-1)**3)*((d*i)-(g*f))
+c1= ((-1)**4)*((d*h)-(g*e))
+d1= ((-1)**3)*((b*i)-(h*c))
+e1= ((-1)**4)*((a*i)-(g*c))
+f1= ((-1)**5)*((a*h)-(g*b))
+g1= ((-1)**4)*((b*f)-(e*c))
+h1= ((-1)**5)*((a*f)-(d*c))
+i1= ((-1)**6)*((a*e)-(d*b))
+
+print(a1, d1, g1)
+print(b1, e1, h1)
+print(c1, f1, i1)
+print(timeit.default_timer() - start_time)
+
+start_time = timeit.default_timer()
+
+a,b,c,d,e,f,g,h,i=map(int, input().split())
+w=np.array([[a, b, c], [d,e,f], [g,h,i]])
+print(np.linalg.inv(w))
+
+print(timeit.default_timer() - start_time)
